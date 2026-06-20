@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mobile Legends Database - MLBB Hero Guides</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero-header">
+    <div class="header-glow"></div>
+    <div class="header-content">
+      <div class="brand-row">
+        <div class="logo">ML</div>
+        <div>
+          <p class="eyebrow">Mobile Legends Database</p>
+          <h1>MLBB Hero Guides</h1>
+          <p class="subtitle">Hero guides, skills, counters, synergies, builds, emblems, calculator, and tier list.</p>
+          <a class="api-link" href="https://github.com/p3hndrx/MLBB-API" target="_blank" rel="noopener">API Source</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="heroes">Heroes</button>
+    <button class="tab" data-tab="builds">Best Build</button>
+    <button class="tab" data-tab="emblems">Best Emblem</button>
+    <button class="tab" data-tab="counters">Counters</button>
+    <button class="tab" data-tab="calculator">Stats Calculator</button>
+    <button class="tab" data-tab="tier">Tier List</button>
+  </nav>
+
+  <main class="container">
+    <section class="control-card">
+      <input id="searchInput" type="search" placeholder="Search hero like Gusion, Miya, Saber..." />
+      <div class="filters" id="roleFilters">
+        <button class="filter active" data-role="All">All Roles</button>
+        <button class="filter" data-role="Tank">Tank</button>
+        <button class="filter" data-role="Fighter">Fighter</button>
+        <button class="filter" data-role="Assassin">Assassin</button>
+        <button class="filter" data-role="Mage">Mage</button>
+        <button class="filter" data-role="Marksman">Marksman</button>
+        <button class="filter" data-role="Support">Support</button>
+      </div>
+    </section>
+
+    <section id="status" class="status">Loading MLBB API data...</section>
+
+    <section id="heroes" class="page active">
+      <div class="section-title">
+        <h2>✅ Hero Guides</h2>
+        <p>Shows hero role, lane, speciality, skills, counters, and synergies from hero-meta-final.json.</p>
+      </div>
+      <div id="heroGrid" class="hero-grid"></div>
+    </section>
+
+    <section id="builds" class="page">
+      <div class="section-title"><h2>✅ Best Build</h2><p>Auto generated sample builds by hero class. You can edit this in app.js.</p></div>
+      <div id="buildGrid" class="info-grid"></div>
+    </section>
+
+    <section id="emblems" class="page">
+      <div class="section-title"><h2>✅ Best Emblem</h2><p>Suggested emblem setup based on hero class.</p></div>
+      <div id="emblemGrid" class="info-grid"></div>
+    </section>
+
+    <section id="counters" class="page">
+      <div class="section-title"><h2>✅ Counter Heroes</h2><p>Counters and synergies use heroid then match to hero image/icon from the API.</p></div>
+      <div id="counterGrid" class="info-grid"></div>
+    </section>
+
+    <section id="calculator" class="page">
+      <div class="section-title"><h2>✅ Hero Stats Calculator</h2><p>Simple damage/HP calculator using your selected hero.</p></div>
+      <div class="calc-card">
+        <label>Select Hero</label>
+        <select id="calcHero"></select>
+        <label>Extra Attack / Magic Power</label>
+        <input id="extraPower" type="number" value="100" />
+        <label>Multiplier</label>
+        <input id="multiplier" type="number" value="1.2" step="0.1" />
+        <button id="calcBtn">Calculate</button>
+        <div id="calcResult" class="result-box"></div>
+      </div>
+    </section>
+
+    <section id="tier" class="page">
+      <div class="section-title"><h2>✅ Tier List System</h2><p>Auto tier by class. Edit the tierRules object in app.js for your own ranking.</p></div>
+      <div id="tierGrid" class="tier-wrap"></div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose">×</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
